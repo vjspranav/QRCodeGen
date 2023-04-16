@@ -2,32 +2,66 @@
 <html>
 <head>
   <title>QRCodeGen</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <style>
-    /* Add any styling you want for your front-end */
+    .container {
+      margin-top: 50px;
+    }
+    .input-field input[type=text]:focus + label {
+      color: #2196f3;
+    }
+    .input-field input[type=text]:focus {
+      border-bottom: 1px solid #2196f3;
+      box-shadow: 0 1px 0 0 #2196f3;
+    }
+    .btn {
+      background-color: #2196f3;
+    }
+    .btn:hover {
+      background-color: #1976d2;
+    }
+    #image-container {
+      display: none;
+      margin-top: 50px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <h1>QR Code Generator</h1>
+  <div class="container">
+    <h1 class="center-align">QR Code Generator</h1>
+    
+    <!-- Input section -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="input" type="text" class="validate">
+        <label for="input">Enter link or text</label>
+      </div>
+    </div>
+
+    <!-- Add flex -->
+    <div style="display: flex;">
+        <!-- Generate button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button id="generate" class="btn waves-effect waves-light" type="button">Generate QR Code</button>
+            </div>
+        </div>
+    
+        <!-- Download button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button id="download" class="btn waves-effect waves-light" type="button">Download QR Code</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image container -->
+    <div id="image-container"></div>
+  </div>
   
-  <!-- Input section -->
-  <label for="input">Enter link or text:</label>
-  <input type="text" id="input" name="input"><br><br>
-  
-  <!-- Generate button -->
-  <button id="generate">Generate QR Code</button>
-  
-  <!-- Download button -->
-  <button id="download">Download QR Code</button>
-  
-  <!-- Image show button -->
-  <button id="show">Show QR Code</button>
-  
-  <!-- Image container -->
-  <div id="image-container"></div>
-  
-  <!-- Add any JavaScript code you need for your functionality -->
-  <script>
-    // Your JavaScript code here
-  </script>
+  <!-- Add any JavaScript code you need for your functionality -->  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
