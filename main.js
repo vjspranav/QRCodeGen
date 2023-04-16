@@ -41,6 +41,12 @@ img_str`;
 const addToImageContainer = (b64) => {};
 
 const initialisePyodide = async () => {
+  const genButton = document.getElementById("generate");
+  const downloadButton = document.getElementById("download");
+
+  // disable download button
+  downloadButton.disabled = true;
+
   // Show loading and hide container class
   // create loading div
   const loadingDiv = document.createElement("div");
@@ -67,11 +73,11 @@ const initialisePyodide = async () => {
   console.log("Pyodide is ready to use!");
 
   // Add onclick event to button
-  const genButton = document.getElementById("generate");
   genButton.onclick = () => {
     const input = document.getElementById("input");
     console.log(input.value);
     generateQRCode(input.value, pyodide);
+    downloadButton.disabled = false;
   };
 
   // Remove loading div and show container
@@ -79,7 +85,6 @@ const initialisePyodide = async () => {
   container[0].style.display = "block";
 
   // Download the QR code
-  const downloadButton = document.getElementById("download");
   downloadButton.onclick = () => {
     // Get base64 string from image
     const image = document.getElementById("ic").firstChild;
