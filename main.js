@@ -41,7 +41,7 @@ img_str`;
 const addToImageContainer = (b64) => {};
 
 const initialisePyodide = async () => {
-  const genButton = document.getElementById("generate");
+  //   const genButton = document.getElementById("generate");
   const downloadButton = document.getElementById("download");
 
   // disable download button
@@ -73,8 +73,16 @@ const initialisePyodide = async () => {
   console.log("Pyodide is ready to use!");
 
   // Add onclick event to button
-  genButton.onclick = () => {
-    const input = document.getElementById("input");
+  //   genButton.onclick = () => {
+  //     const input = document.getElementById("input");
+  //     console.log(input.value);
+  //     generateQRCode(input.value, pyodide);
+  //     downloadButton.disabled = false;
+  //   };
+
+  // Add on change event to input
+  const input = document.getElementById("input");
+  input.onkeydown = () => {
     console.log(input.value);
     generateQRCode(input.value, pyodide);
     downloadButton.disabled = false;
